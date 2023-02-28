@@ -41,7 +41,8 @@ namespace Notes
             {
                 if (Viewer.SelectedItem == note)
                 {
-                    notes.Remove(note);
+                    note.name = Name.Text;
+                    note.description = Description.Text;
                 }
             }
 
@@ -83,7 +84,7 @@ namespace Notes
             ViewNotes();
         }
 
-        private void ViewNotes()
+        private void ViewNotes() // я чёт вообще туплю, не могу понять как нормально привязать значения записок к столбцам.
         {
             List<Note> notes = Serializer.Deserialize();
             List<Note> CheckedNotes = new List<Note>();
@@ -95,6 +96,11 @@ namespace Notes
                 }
             }
             Viewer.ItemsSource = CheckedNotes;
+        }
+
+        private void ChangedDate(object sender, SelectionChangedEventArgs e)
+        {
+            ViewNotes();
         }
     }
 }
