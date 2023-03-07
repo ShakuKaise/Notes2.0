@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Notes
 {
@@ -37,19 +38,13 @@ namespace Notes
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             List<Note> notes = Serializer.Deserialize();
-            foreach (Note note in notes)
-            {
-                if (Viewer.SelectedItem == note)
-                {
-                    note.name = Name.Text;
-                    note.description = Description.Text;
-                }
-            }
+
+            notes[Viewer.SelectedIndex].name = Name.Text;
+            notes[Viewer.SelectedIndex].description = Description.Text;
 
             Serializer.Serialize(notes);
             ViewNotes();
         }
-
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
             List<Note> notes = Serializer.Deserialize();
@@ -72,35 +67,54 @@ namespace Notes
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             List<Note> notes = Serializer.Deserialize();
-            foreach (Note note in notes)
+            notes.RemoveAt(Viewer.SelectedIndex);
+            ViewNotes();
+            try
             {
-                if (Viewer.SelectedItem == note)
-                {
-                    notes.Remove(note);
-                }
+                
             }
-
+            catch
+            {
+                ViewNotes();
+            }
             Serializer.Serialize(notes);
+            notes = Serializer.Deserialize();
+
             ViewNotes();
         }
 
         private void ViewNotes() // я чёт вообще туплю, не могу понять как нормально привязать значения записок к столбцам.
         {
+            
             List<Note> notes = Serializer.Deserialize();
-            List<Note> CheckedNotes = new List<Note>();
+            Viewer.Items.Clear();
             foreach (Note note in notes)
             {
                 if (note.date == Date.SelectedDate)
                 {
-                    CheckedNotes.Add(note);
+                    Viewer.Items.Add(note.name);
                 }
+
             }
-            Viewer.ItemsSource = CheckedNotes;
         }
 
         private void ChangedDate(object sender, SelectionChangedEventArgs e)
         {
             ViewNotes();
+        }
+
+        private void Viewer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                List<Note> notes = Serializer.Deserialize();
+                Name.Text = notes[Viewer.SelectedIndex].name.ToString();
+                Description.Text = notes[Viewer.SelectedIndex].description.ToString();
+            }
+            catch
+            {
+                
+            }
         }
     }
 }

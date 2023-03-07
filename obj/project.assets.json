@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shuvi\\.nuget\\packages\\": {}
+    "C:\\Users\\uter\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\mpt\\C#\\Notes\\Notes.csproj",
+      "projectUniqueName": "C:\\mpt\\2 курс 2 семест\\C#\\Notes2\\Notes2.0\\Notes.csproj",
       "projectName": "Notes",
-      "projectPath": "C:\\mpt\\C#\\Notes\\Notes.csproj",
-      "packagesPath": "C:\\Users\\Shuvi\\.nuget\\packages\\",
-      "outputPath": "C:\\mpt\\C#\\Notes\\obj\\",
+      "projectPath": "C:\\mpt\\2 курс 2 семест\\C#\\Notes2\\Notes2.0\\Notes.csproj",
+      "packagesPath": "C:\\Users\\uter\\.nuget\\packages\\",
+      "outputPath": "C:\\mpt\\2 курс 2 семест\\C#\\Notes2\\Notes2.0\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Shuvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\uter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -117,7 +117,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

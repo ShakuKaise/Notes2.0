@@ -14,11 +14,11 @@ namespace Notes
         public static void Serialize(List<Note> notes)
         {
             string json = JsonConvert.SerializeObject(notes);
-            File.WriteAllText("C:\\mpt\\C#\\Notes\\notes.json", json);
+            File.WriteAllText("C:\\mpt\\2 курс 2 семест\\C#\\Notes2\\Notes2.0\\notes.json", json);
         }
         public static List<Note> Deserialize()
         {
-            string json = File.ReadAllText("C:\\mpt\\C#\\Notes\\notes.json");
+            string json = File.ReadAllText("C:\\mpt\\2 курс 2 семест\\C#\\Notes2\\Notes2.0\\notes.json");
             List<Note> notes = JsonConvert.DeserializeObject<List<Note>>(json);
             return notes;
         }
